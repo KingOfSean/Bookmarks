@@ -13,7 +13,7 @@ const CloseModelButton = styled(MdClose)`
     z-index: 10;
 `
 
-export default function Modal({ showModal, setShowModal, handleChange, updateBookmark, handleSubmit, data }) {
+export default function Modal({ showModal, setShowModal, update, updateBookmark, setUpdate, data }) {
     const [theTitle, setTheTitle] = useState(data.title);
     const [theUrl, setTheUrl] = useState(data.url);
 
@@ -26,18 +26,26 @@ export default function Modal({ showModal, setShowModal, handleChange, updateBoo
         updateBookmark(theData, data._id)
     }
 console.log(data._id)
-    return <>{showModal ? 
-        <div className="bg-modal">
-            <div className="modal-container">
-                <form className="modal-form" onSubmit={onFormSubmit}>
-                <input type="text" id="title" placeholder="title" onChange={onTheTitleChange} value={theTitle} />
-                    <input type="text" id="url" placeholder="url" onChange={onTheUrlChange} value={theUrl} />
-                    <input type="submit"></input>
-                    <CloseModelButton aria-label="Close modal" onClick={() => {
+    return (
+        <>{showModal && data._id === update ?  
+            <div className="bg-modal">
+                <div className="modal-container">
+                    <form className="modal-form" onSubmit={onFormSubmit}>
+                        <label for="title">Title: {" "}
+                        <input type="text" id="title" placeholder="title" onChange={onTheTitleChange} value={theTitle} /> <br/>
+                        </label>
+                        <br />
+                        <label for="url">URL: {" "}
+                        <input type="text" id="url" placeholder="url" onChange={onTheUrlChange} value={theUrl} /> <br/>
+                        </label>
+                        <br />
+                        <input type="submit"></input>
+                        <CloseModelButton aria-label="Close modal" onClick={() => {
                         setShowModal(false)
-                    }} />
-                </form>
+                        }} />
+                    </form>
+                </div>
             </div>
-        </div>
-    : null}</>    
+        : null}</>
+    )    
 };

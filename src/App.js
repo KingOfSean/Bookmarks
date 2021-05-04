@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {MdClose} from 'react-icons/md';
 import UpdateModal from './Components/UpdateBookmark/UpdateModal';
 import './App.css';
 
 export const DataContext = React.createContext();
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vw;
-`;
+
 
 const Button = styled.button`
   min-width: 100px;
@@ -21,19 +15,10 @@ const Button = styled.button`
   // background: #141414;
   font-size: 15px;
 `;
-const CloseModelButton = styled(MdClose)`
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  z-index: 10;
-`
+
 
 export default function App() {
-  const [submit, setSubmit] = useState("POST")
+  const [update, setUpdate] = useState()
   const [showModal, setShowModal] = useState(false)
   const [bookmarks, setBookmarks] = useState([]);
   const [formData, setFormData] = useState({
@@ -42,24 +27,17 @@ export default function App() {
   })
 
   const openModel = (e) => {
-    setShowModal(true) 
+    setShowModal(true)
+    setUpdate(e.target.value)
+      
   }
+
   
   const handleChange = (e) => {
     setFormData({
       ...formData, [e.target.id]: e.target.value
     })
   }
-
-  // const handleSubmit = (e) => {
-  //   if (submit === "POST"){
-  //     createBookmark(e)
-  //   }else {
-  //     updateBookmark(e)
-  //   }
-    
-  // }
-
 
 
 
@@ -142,34 +120,35 @@ export default function App() {
     getBookmarks()
   }, []);
 
-  console.log(bookmarks)
+
   return (
     <div className="App">
       <form onSubmit={createBookmark}>
-        <input type="text" id="title" value={formData.title} onChange={handleChange}></input>{" "}
+        <label>Bookmark Title: {" "}
+        <input type="text" id="title" value={formData.title} onChange={handleChange}></input>{" "}<br />
+        </label>
         <br />
-        <input type="text" id="url" value={formData.url} onChange={handleChange}></input>{" "}
+        <label>Bookmark URL: {" "}
+        <input type="text" id="url" value={formData.url} onChange={handleChange}></input>{" "}<br />
+        </label>
         <br />
         <input type="submit"></input>
       </form>
+        <br />
       {bookmarks.map((bookmark, i) => {
         return (
           <div>
             <a href={bookmark.url} target="_target">{bookmark.title}</a>
-            <Button value={bookmark._id} onClick={(e) => {
-              openModel(e, bookmark._id)
-            }}>{`UPDATE ${bookmark.title}`}</Button>
+            <Button value={bookmark._id} onClick={openModel}>
+              {`UPDATE ${bookmark.title}`}</Button>
             <Button onClick={(e) => {
                 deleteBookmark(e, bookmark._id);
               }}
             >{`DELETE ${bookmark.title}`}</Button>
-            <UpdateModal data={bookmark} showModal={showModal} setShowModal={setShowModal} updateBookmark={updateBookmark} />
+            <UpdateModal data={bookmark} showModal={showModal} setShowModal={setShowModal} updateBookmark={updateBookmark} update={update} setUpdate={setUpdate} />
           </div>
         )
       })}
-      {/* {bookmarks.map((el, i) => {
-        return <UpdateModal data={el} showModal={showModal} setShowModal={setShowModal} updateBookmark={updateBookmark} />
-      })} */}
     </div>
   );
 }

@@ -37,7 +37,7 @@
   }
 }
 
-/* .bg-modal {
+.bg-modal {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,4 +56,4 @@
   height: 300px;
   background-color: bisque;
   position: absolute;
-} */
+}
