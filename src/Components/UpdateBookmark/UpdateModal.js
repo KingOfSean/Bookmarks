@@ -22,8 +22,9 @@ export default function Modal({ showModal, setShowModal, update, updateBookmark,
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        const theData = { title: theTitle, url: theUrl }
-        updateBookmark(theData, data._id)
+        const theData = { title: theTitle, url: theUrl };
+        updateBookmark(theData, data._id);
+        setShowModal(false);
     }
 console.log(data._id)
     return (
@@ -32,14 +33,14 @@ console.log(data._id)
                 <div className="modal-container">
                     <form className="modal-form" onSubmit={onFormSubmit}>
                         <label for="title">Title: {" "}
-                        <input type="text" id="title" placeholder="title" onChange={onTheTitleChange} value={theTitle} /> <br/>
+                        <input className="edit" type="text" id="title" placeholder="title" onChange={onTheTitleChange} value={theTitle} /> <br/>
                         </label>
                         <br />
                         <label for="url">URL: {" "}
-                        <input type="text" id="url" placeholder="url" onChange={onTheUrlChange} value={theUrl} /> <br/>
+                        <input className="edit" type="text" id="url" placeholder="url" onChange={onTheUrlChange} value={theUrl} /> <br/>
                         </label>
                         <br />
-                        <input type="submit"></input>
+                        <input className="submit" type="submit"></input>
                         <CloseModelButton aria-label="Close modal" onClick={() => {
                         setShowModal(false)
                         }} />
