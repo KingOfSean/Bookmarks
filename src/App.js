@@ -294,9 +294,12 @@ export default function App() {
         <CreateUsers createModal={createModal} setCreateModal={setCreateModal} />
         </div>}
         </>
-        <footer>
+        <>{showModal === false?
+          <footer>
           By: Sean King
         </footer>
+          :
+          null}</>
     </div>
   );
 }
