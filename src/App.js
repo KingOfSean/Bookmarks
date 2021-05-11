@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import UpdateModal from './Components/UpdateBookmark/UpdateModal';
+import CreateUsers from './Components/CreateUsers/CreateUsers'
 import './App.css';
 
 
@@ -25,13 +26,14 @@ cursor: pointer;
 
 
 export default function App() {
-  const [update, setUpdate] = useState()
-  const [showModal, setShowModal] = useState(false)
+  const [update, setUpdate] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [createModal, setCreateModal] = useState(false);
   const [bookmarks, setBookmarks] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     url: ""
-  })
+  });
 
 
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -82,6 +84,10 @@ export default function App() {
     setFormData({
       ...formData, [e.target.id]: e.target.value
     })
+  }
+
+  const openCreateModal = (e) => {
+    setCreateModal(true)
   }
 
 
@@ -282,8 +288,10 @@ export default function App() {
           </label>
           <br />
           <br />
-          <input className="submit" type="submit" />
+          <input className="submit" type="submit" />{' '}{' '}
         </form>
+          <button className="submit" onClick={openCreateModal} >Create User</button>
+        <CreateUsers createModal={createModal} setCreateModal={setCreateModal} />
         </div>}
         </>
         <footer>
