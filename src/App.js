@@ -46,7 +46,7 @@ export default function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:9000/login", {
+      const response = await fetch("https://sean-bookmarks-backend.herokuapp.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -98,7 +98,7 @@ export default function App() {
     const body = { ...formData };
 
     try {
-     const response = await fetch('http://localhost:9000/bookmarks', {
+     const response = await fetch('https://sean-bookmarks-backend.herokuapp.com/bookmarks', {
        method: "POST",
        headers: {
          "Content-Type": "application/json"
@@ -107,7 +107,7 @@ export default function App() {
      });
         const bookmark = await response.json();
         const addBookmark = await fetch(
-         "http://localhost:9000/users/addBookmarkToUser",
+         "https://sean-bookmarks-backend.herokuapp.com/users/addBookmarkToUser",
          {
            method: "POST",
            headers: {
@@ -137,7 +137,7 @@ export default function App() {
   const getBookmarks = async () => {
     try {
       const response = await fetch(
-        `http://localhost:9000/users/${window.localStorage.getItem(
+        `https://sean-bookmarks-backend.herokuapp.com/users/${window.localStorage.getItem(
           "username"
         )}`,
         {
@@ -160,7 +160,7 @@ export default function App() {
   // UPDATE
   const updateBookmark = async (data, id) => {
     try {
-      const response = await fetch(`http://localhost:9000/bookmarks/${id}`, {
+      const response = await fetch(`https://sean-bookmarks-backend.herokuapp.com/bookmarks/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -178,7 +178,7 @@ export default function App() {
   // DESTROY
   const deleteBookmark = async (e, id) => {
     try {
-      const response = await fetch(`http://localhost:9000/bookmarks/${id}`, {
+      const response = await fetch(`https://sean-bookmarks-backend.herokuapp.com/bookmarks/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"
