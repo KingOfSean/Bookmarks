@@ -320,10 +320,10 @@ export default function App() {
 							<br />
 							<br />
 							<input className="submit" type="submit" />{" "}
+							<button className="submit" onClick={openCreateModal}>
+								Create User
+							</button>
 						</form>
-						<button className="submit" onClick={openCreateModal}>
-							Create User
-						</button>
 						<CreateUsers
 							createModal={createModal}
 							setCreateModal={setCreateModal}
