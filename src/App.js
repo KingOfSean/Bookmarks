@@ -206,7 +206,7 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<>
+			<div className="content">
 				{isLoggedIn ? (
 					<div>
 						<nav>
@@ -330,7 +330,7 @@ export default function App() {
 						/>
 					</div>
 				)}
-			</>
+			</div>
 			<>{showModal === false ? <footer>By: Sean King</footer> : null}</>
 		</div>
 	);

@@ -1,10 +1,16 @@
-
 .App {
-  text-align: center;
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%);
-  /* display: flex;
-  justify-content: space-between;
-  flex-direction: column; */
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background: -webkit-radial-gradient(
+		center,
+		ellipse cover,
+		rgba(181, 189, 200, 1) 0%,
+		rgba(130, 140, 149, 1) 36%,
+		rgba(40, 52, 59, 1) 100%
+	);
+	width: 100vw;
+	height: 100vh;
 }
 
 /* body {
@@ -13,149 +19,151 @@
   height: 100%;
 } */
 
+.content {
+	height: 100vh;
+}
 
 footer {
-  display: flex;
-  justify-content: center;
-  color: white;
-  position: sticky;
-  margin-top: 15px;
-  padding: 1rem;
-  text-align: center;
-  background-color: black;
-  margin-top: 2%;
-  font-size: 15px;
+	display: flex;
+	justify-content: center;
+	color: white;
+	position: sticky;
+	margin-top: 15px;
+	padding: 1rem;
+	text-align: center;
+	background-color: black;
+	margin-top: 2%;
+	font-size: 15px;
 }
 
 .nav-container {
-  display: flex;
-  align-items: center;
-  background-color: black;
-  justify-content: space-between;
-  color: white;
-  margin-bottom: 100px;
-  padding: 0 20px;
+	display: flex;
+	align-items: center;
+	background-color: black;
+	justify-content: space-between;
+	color: white;
+	margin-bottom: 100px;
+	padding: 0 20px;
 }
 
 nav img {
-  max-height: 50px;
-  padding: 5px;
-  margin: 5px 20px 5px 0;
-  display: inline-block;
-  vertical-align: middle;
+	max-height: 50px;
+	padding: 5px;
+	margin: 5px 20px 5px 0;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 nav h1 {
-  padding: 10px;
-  display: inline-block;
-  vertical-align: middle;
+	padding: 10px;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .bookmarks-container {
-  display: inline-flex;
-  justify-content: space-between;
-  text-align: center;
-  flex-direction: row;
+	display: inline-flex;
+	justify-content: space-between;
+	text-align: center;
+	flex-direction: row;
 }
 
 .bookmarks-form {
-  display: inline;
-  margin: 0 0 0 100px;
-  justify-content: center;
-  align-items: center;
+	display: inline;
+	margin: 0 0 0 100px;
+	justify-content: center;
+	align-items: center;
 }
 
 .added-bookmarks {
-  display: inline;
-  margin: 0 100px;
+	display: inline;
+	margin: 0 100px;
 }
 
 .bg-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .modal-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 300px;
-  background-color: rgb(29, 29, 29);
-  color: aliceblue;
-  position: fixed;
-  border-radius: 25px;
-  border: solid white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 300px;
+	background-color: rgb(29, 29, 29);
+	color: aliceblue;
+	position: fixed;
+	border-radius: 25px;
+	border: solid white;
 }
 
 .each-bookmark {
-  justify-content: space-around;
-  padding: 16px 32px;
-  border: solid black;
-  margin-top: 15px;
-  border-radius: 40px;
-  background-color: rgb(84, 93, 104);
-
+	justify-content: space-around;
+	padding: 16px 32px;
+	border: solid black;
+	margin-top: 15px;
+	border-radius: 40px;
+	background-color: rgb(84, 93, 104);
 }
 
 a {
-  text-decoration: none;
-  font-size: 30px;
-  color: aliceblue;
+	text-decoration: none;
+	font-size: 30px;
+	color: aliceblue;
 }
 
 .create {
-  display: inline;
-  background-color: rgba(77, 77, 77, 0.5);
-  border: 2px solid transparent;
-  flex-grow: 1;
-  font-size: 1.2rem;
-  padding: 0.75rem 1rem;
-  width: 300px;
-  border-radius: 10px;
-  outline: none;
+	display: inline;
+	background-color: rgba(77, 77, 77, 0.5);
+	border: 2px solid transparent;
+	flex-grow: 1;
+	font-size: 1.2rem;
+	padding: 0.75rem 1rem;
+	width: 300px;
+	border-radius: 10px;
+	outline: none;
 }
 
 .edit {
-  display: inline;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid transparent;
-  flex-grow: 1;
-  font-size: 1.2rem;
-  padding: 0.75rem 1rem;
-  width: 300px;
-  border-radius: 10px;
-  outline: none;
+	display: inline;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 2px solid transparent;
+	flex-grow: 1;
+	font-size: 1.2rem;
+	padding: 0.75rem 1rem;
+	width: 300px;
+	border-radius: 10px;
+	outline: none;
 }
 
 .submit {
-  text-transform: uppercase;
-  text-decoration: none;
-  background-color: rgb(84, 93, 104);
-  padding: 15px;
-  color: white;
-  border-radius: 5rem;
-  box-sizing: content-box;
-  width: fit-content;
-  transition: all .2s;
-  font-size: 1rem;
-  font-family: 'Merriweather Sans', sans-serif;
-  cursor: pointer;
+	text-transform: uppercase;
+	text-decoration: none;
+	background-color: rgb(84, 93, 104);
+	padding: 15px;
+	color: white;
+	border-radius: 5rem;
+	box-sizing: content-box;
+	width: fit-content;
+	transition: all 0.2s;
+	font-size: 1rem;
+	font-family: "Merriweather Sans", sans-serif;
+	cursor: pointer;
 }
 
 center img {
-  margin: 5%;
+	margin: 5%;
 }
 
 center h1 {
-  font-size: 100px;
+	font-size: 100px;
 }
